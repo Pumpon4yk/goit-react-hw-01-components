@@ -5,19 +5,14 @@ export const Stat = styled.ul`
 display: flex;
 align-items: center;
 justify-content: center;
-${'' /* flex-wrap: wrap; */}
 
 width: 100%;
-${'' /* height: 90px; */}
 
 list-style: none;
 margin:0;
 padding:0;
-${'' /* background-color: #c7c5c565; */}
 
-`
-// const getRandomHexColor () => `#${Math.floor(Math.random() * 16777215).toString(16)}`;
-  
+`;
 
 
 export const Item = styled.li`

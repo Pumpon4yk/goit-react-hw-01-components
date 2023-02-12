@@ -5,15 +5,17 @@ import { Stats } from './State/Stats';
 import PropTypes from 'prop-types';
 
 export const Card = ({userData}) => {
+const {username, tag, location, avatar, stats} = userData;
+
     return (
         <Profile
         >
             <Description
-            username={userData.username}
-            tag={userData.tag}
-            location={userData.location}
-            avatar={userData.avatar}/>
-        <Stats stats={userData.stats}/>
+            username={username}
+            tag={tag}
+            location={location}
+            avatar={avatar}/>
+        <Stats stats={stats}/>
         </Profile>
     );
 };
