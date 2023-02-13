@@ -1,8 +1,16 @@
-import {TransactionHistory, Thead, TrHed, ThHed,Tbody,TrBody,TdBody} from './TransactionHistory.styled'
+import {
+    TransactionHistory,
+    Thead,
+    TrHed,
+    ThHed,
+    Tbody,
+    TrBody,
+    TdBody,
+} from './TransactionHistory.styled';
 import PropTypes from 'prop-types';
 
-export const TransactionTable = ({transactions}) => {
-    return(
+export const TransactionTable = ({ transactions }) => {
+    return (
         <TransactionHistory>
             <Thead>
                 <TrHed>
@@ -13,25 +21,25 @@ export const TransactionTable = ({transactions}) => {
             </Thead>
 
             <Tbody>
-            {transactions.map(({id, type, amount, currency}, ind) => (
+                {transactions.map(({ id, type, amount, currency }, ind) => (
                     <TrBody key={id} id={ind}>
                         <TdBody>{type}</TdBody>
                         <TdBody>{amount}</TdBody>
                         <TdBody>{currency}</TdBody>
                     </TrBody>
-            ))}
+                ))}
             </Tbody>
         </TransactionHistory>
-    )
-}
+    );
+};
 
 TransactionTable.propTypes = {
     transactions: PropTypes.arrayOf(
         PropTypes.shape({
-        id: PropTypes.string.isRequired,
-        type: PropTypes.string.isRequired,
-        amount: PropTypes.string.isRequired,
-        currency: PropTypes.string.isRequired,
-    }))
-}
-
+            id: PropTypes.string.isRequired,
+            type: PropTypes.string.isRequired,
+            amount: PropTypes.string.isRequired,
+            currency: PropTypes.string.isRequired,
+        })
+    ),
+};

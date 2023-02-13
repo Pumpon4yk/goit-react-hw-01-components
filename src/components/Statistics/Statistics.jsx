@@ -1,27 +1,36 @@
-import {Statistics} from './Statistics.styled'
-import { Title } from './Title/Title'
-import { List } from './List/List'
+import {
+    Statistics,
+    Title,
+    List,
+    Item,
+    Label,
+    Percentage,
+} from './Statistics.styled';
 import PropTypes from 'prop-types';
 
-
-
-export const Section = ({statis}) => {
-
+export const Section = ({ statis, title }) => {
     return (
         <Statistics>
-            <Title title="Upload stats"/>
-                <List statis={statis}/>
+            <Title>{title}</Title>
+            <List>
+                {statis.map(({ id, label, percentage }) => (
+                    <Item key={id}>
+                        <Label>{label}</Label>
+                        <Percentage>{percentage}%</Percentage>
+                    </Item>
+                ))}
+            </List>
         </Statistics>
-    )
-}
-
+    );
+};
 
 Section.propTypes = {
     title: PropTypes.string,
     statis: PropTypes.arrayOf(
         PropTypes.shape({
-        id: PropTypes.string,
-        label: PropTypes.string,
-        percentage: PropTypes.number
-    }))
-}
+            id: PropTypes.string,
+            label: PropTypes.string,
+            percentage: PropTypes.number,
+        })
+    ),
+};
