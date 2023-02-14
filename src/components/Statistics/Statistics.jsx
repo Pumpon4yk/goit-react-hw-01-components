@@ -11,7 +11,7 @@ import PropTypes from 'prop-types';
 export const Section = ({ statis, title }) => {
     return (
         <Statistics>
-            <Title>{title}</Title>
+        {title ?<Title>{title}</Title>: "" }
             <List>
                 {statis.map(({ id, label, percentage }) => (
                     <Item key={id}>
@@ -28,9 +28,9 @@ Section.propTypes = {
     title: PropTypes.string,
     statis: PropTypes.arrayOf(
         PropTypes.shape({
-            id: PropTypes.string,
-            label: PropTypes.string,
-            percentage: PropTypes.number,
+            id: PropTypes.string.isRequired,
+            label: PropTypes.string.isRequired,
+            percentage: PropTypes.number.isRequired,
         })
-    ),
+    ).isRequired,
 };
